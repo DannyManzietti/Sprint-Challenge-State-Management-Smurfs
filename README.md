@@ -16,17 +16,29 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 ## Description
 
-In this challenge, you are to build a Smurfs village utilizing context or Redux as your state management. Build this challenge from the ground up using what you have learned about state management.
+In this challenge, you are to build the Smurfs village once again, only this time, you will utilize context or Redux as your state management. Don't use any old code from your previous Smurfs Sprint Challenge. Build this challenge from the ground up using what you have learned about state management.
 
 ## Self-Study/Essay Questions
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+  A: 	Context is an application state-manager that lets me store all of my data in a central location (usually my App.js file, or something else that’s top-level) and pass it down to the components who need it. I can totally avoid prop-drilling level by level with Context.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+  A: 	Actions - best described as any possible interaction that the user might take on my site. If they’re clicking a button to log in, I’ll receive data - my action will describe and deal with that interaction.
+	    Reducers - These are a collection point for similar actions, and they receive the user’s data and update state. If an API’s called, one reducer will hold logic for 1) a successful API call and 2) when the call fails and I don’t receive any data back.
+      Store - this is the central collection of state inside my application. All my state data's kept in the store, and if it changes then my actions & reducers work together to update and return a new copy of the store (so everything stays immutable). That's why the store's a single source of truth- it's my only reference, and I'm not editing it- just over-writing.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+  A: 	Application state is way more global…any component can access application state. Component state is only accessible inside of the component. If data’s specific to one component, it can live in the component state, but if it needs to be shared then it lives in application.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+  A: 	Redux-thunk allows me to pass dispatch as a parameter into my action creative, which I can then use to make conditional actions.type calls. This is great for asynchronous code, where I’m waiting for a response and I don’t know what type I’ll receive back.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+  A: 	Redux! Which I was surprised by- it’s way more code than Context or useReducer, but once you set it up I think the store-actions-reducer pattern is pretty elegant and I can see how much easier it’d make my day if I was coding a huge application.
+  
 
 ## Project Set Up
 
@@ -48,7 +60,7 @@ Follow these steps to set up your project:
 
 - [ ] Plan and implement how you are going to manage your state for your application
 - [ ] You _must_ use either context or Redux as your state management system
-- [ ] Once you have planned out your state management system, fetch data from the smurf server and display the data it returns
+- [ ] Once you have planned out your state management system, fetch data from the smurf server
 - [ ] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village
 
 ## API documentation
